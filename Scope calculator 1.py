@@ -28,9 +28,9 @@ if uploaded_file:
                     line_items.append((label, rcv))
 
     st.subheader("Select Completed Line Items")
-    for label, rcv in line_items:
-        if st.checkbox(label):
-            total += rcv
+    for i, (label, rcv) in enumerate(line_items):
+    if st.checkbox(label, key=f"line_{i}"):
+        total += rcv
 
     st.markdown(f"### Total Selected RCV: **${total:,.2f}**")
 else:
